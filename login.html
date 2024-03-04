@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <video autoplay muted loop class="video-background">
+        <source src="vid.mp4" type="video/mp4">
+    </video>   
+    <div class="glass-container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" id="email" name="email" required placeholder="Email">
+                <input type="password" id="password" name="password" required placeholder="Password">
+                <br></br>                
+                <button type="submit">Submit</button>
+                <div class="options">
+                    <p>Dont have an Account?<a href="register.html" id="register"> Register</a></p> 
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event){
+            event.preventDefault();
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            //Here you can define your pre-existing login details
+            var users = [
+                { email: "user1@example.com", password: "password1" },
+                { email: "user2@example.com", password: "password2" },
+                //Add more users as needed
+            ];
+            //Check if the entered credentials match any of the pre-existing ones
+            var isValidUser = users.some(function(user) {
+                return user.email === email && user.password === password;
+            });
+            if (isValidUser) {
+                //Redirect to the captcha page
+                window.location.href = "captcha.html";
+            } else {
+                alert("Invalid email or password");
+            }
+        });
+    </script>
+</body>
+</html>
