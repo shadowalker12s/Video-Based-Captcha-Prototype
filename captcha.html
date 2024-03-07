@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Captcha Challenge</title>
+    <link rel="stylesheet" href="captchastyle.css">
+</head>
+<body>
+    <video autoplay muted loop class="video-background">
+        <source src="bg.mp4" type="video/mp4">
+    </video>      
+    <div class="glass-container">
+        <div class="glass-content">
+            <h2>Video Captcha Challenge</h2>
+            <br></br>
+            <p> Watch the video and answer the question below:</p>
+            <br></br>
+            <div class="captcha-box">
+                <div class="captcha-video-container">
+                    <video autoplay muted loop class="captcha-video">
+                        <source src="test.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="question">
+                    <br></br>
+                    <p>Which Anime is the video from?</p>
+                    <br></br>
+                </div>
+                <form id="captchaForm" onsubmit="return validateAnswer()">
+                    <input type="text" id="answer" name="answer" required placeholder="Enter your answer">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateAnswer() {
+            var userAnswer = document.getElementById("answer").value.trim().toLowerCase();
+            // Check if the answer is correct
+            if (userAnswer === "demon slayer") {
+                // Redirect to the specified URL upon correct answer
+                window.location.href = "https://www.spacex.com/";
+                return false; // Prevent form submission
+            } else {
+                // Incorrect answer
+                alert("Incorrect answer. Please try again.");
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+    <footer>
+        <p class="custom-font">&copy; 2024 VidVeri. All rights reserved.</q>
+    </footer>
+</body>
+</html>
